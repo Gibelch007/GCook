@@ -1,0 +1,8 @@
+git config --glonbal user.name "gibelch007"
+git config --global user. email giovanaferrodrigues@gmail.com
+
+
+dotnet new mvc -o GCook
+
+cd GCook
+
