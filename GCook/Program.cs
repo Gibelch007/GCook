@@ -1,9 +1,24 @@
+using GCook.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+string conn = builder.Configuration.GetConnectionString("Conexao");
+var server = ServerVersion.AutoDetect(conn);
+builder.Services.AddDbContext<AppDbContext>(
+ options => options.UseMySql(conn, server)
+);
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

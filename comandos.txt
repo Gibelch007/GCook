@@ -6,3 +6,7 @@ dotnet new mvc -o GCook
 
 cd GCook
 
+ dotnet ef migrations add InitialCreate
+
+ TODA AULA:
+ dotnet ef database update
