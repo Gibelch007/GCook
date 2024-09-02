@@ -1,5 +1,7 @@
+cd desktop
 git config --glonbal user.name "gibelch007"
-git config --global user. email giovanaferrodrigues@gmail.com
+git config --global user.email giovanaferrodrigues@gmail.com
+git clone
 
 
 dotnet new mvc -o GCook
@@ -9,4 +11,5 @@ cd GCook
  dotnet ef migrations add InitialCreate
 
  TODA AULA:
+
  dotnet ef database update
