@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace GCook.ViewModels;
 
@@ -19,5 +20,22 @@ public class RegistroVm
     [EmailAddress(ErrorMessage ="Por favor, informe um Email Válido!")]
     [StringLength(100, ErrorMessage = "O Email deve possuir no máximo 100 caracteres")]
     public string Email {get; set;}
+
+    [DataType(DataType.Password)]
+    [Display(Name ="Senha de Acesso", Prompt ="Informe uma Senha para o Acesso")]
+    [StringLength(20, MinimumLength = 6, ErrorMessage = " a Senha deve Possuir no minimo 6 caracteres")]
+    public string Senha {get; set;}
     
+
+    [DataType(DataType.Password)]
+    [Display(Name ="Confirmar Senha de Acesso", Prompt = "Informe sua Senha de Acesso")]
+    [Compare("Senha", ErrorMessage = "As Senhas não Conferem.")]
+    public string ConfirmacaoSenha {get; set;}
+
+    public IFormFile Foto {get; set;}
+
+    public bool Termos {get; set;} = false;
+
+    public bool Enviado {get; set;} = false;
+
 }
